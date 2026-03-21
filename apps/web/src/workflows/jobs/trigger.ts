@@ -221,6 +221,7 @@ async function getOrCreateUpdateJobs(options: GetOrCreateUpdateJobOptions): Prom
 
     const id = SequenceNumber.generate().toString();
     const builder = new DependabotJobBuilder({
+      experiments: DEFAULT_EXPERIMENTS,
       source: {
         'provider': organization.type,
         'hostname': organization.providerHostname,
@@ -231,7 +232,6 @@ async function getOrCreateUpdateJobs(options: GetOrCreateUpdateJobOptions): Prom
       update,
       systemAccessToken: organizationCredential.token,
       githubToken: githubToken,
-      experiments: DEFAULT_EXPERIMENTS,
       debug: false,
     });
     const { job, credentials } = builder.forUpdate({
