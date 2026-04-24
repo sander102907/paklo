@@ -1,5 +1,28 @@
 # @paklo/core
 
+## 0.20.0
+
+### Minor Changes
+
+- [#2710](https://github.com/mburumaxwell/paklo/pull/2710) [`7805a85`](https://github.com/mburumaxwell/paklo/commit/7805a85544d3273020fab702fa3784e199daa03f) Thanks [@mburumaxwell](https://github.com/mburumaxwell)! - Add multi-ecosystem execution planning and PR orchestration
+
+  Build on the initial multi-ecosystem config and job support by introducing
+  execution-unit planning and orchestration for grouped updates.
+
+  This change teaches the runner to plan linked updates together, defer
+  multi-ecosystem PR creation until all member jobs have finished, and then
+  finalize a single consolidated PR with a shared branch, combined body, and
+  merged settings.
+
+  It also adds PR metadata for the new flow, including explicit
+  `Dependabot.PackageManagers` and `Dependabot.MultiEcosystemGroupName` properties,
+  while keeping read compatibility for older PRs that only stored
+  `Dependabot.PackageManager`.
+
+### Patch Changes
+
+- [`b014671`](https://github.com/mburumaxwell/paklo/commit/b01467156fcafb5011b07aac9072c4bb820c1c7c) Thanks [@mburumaxwell](https://github.com/mburumaxwell)! - Update default experiments as of 22 April 2026
+
 ## 0.19.0
 
 ### Minor Changes
